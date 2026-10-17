@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import GlassCard from './GlassCard'
 import { text } from '../data/content'
@@ -6,10 +6,12 @@ import { text } from '../data/content'
 export default function Reasons({ onNext }) {
   const [i, setI] = useState(-1)
   const [pops, setPops] = useState([])
+  const lastTap = useRef(0)
   const total = text.reasons.length
   const done = i >= total - 1
   const tap = () => {
-    if (done) return
+    if (done || performance.now() - lastTap.current < 750) return // ignore taps mid-transition so no reason is skipped unseen
+    lastTap.current = performance.now()
     setI((v) => v + 1)
     const id = Date.now()
     const burst = Array.from({ length: 6 }, (_, k) => ({ id: id + k, x: (k - 2.5) * 26, c: ['💗', '💖', '💕'][k % 3] }))
