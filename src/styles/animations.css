@@ -1,0 +1,14 @@
+@keyframes glowBreath{0%,100%{opacity:.7}50%{opacity:1}}
+@keyframes cardPulse{0%,100%{box-shadow:0 0 22px rgba(255,45,150,.25),inset 0 0 24px rgba(255,155,203,.05)}50%{box-shadow:0 0 42px rgba(255,45,150,.55),inset 0 0 24px rgba(255,155,203,.1)}}
+@keyframes heartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
+.beat{animation:heartbeat 1.4s ease-in-out infinite}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}15%{opacity:1}100%{transform:translateY(-420px) rotate(25deg);opacity:0}}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .bg-glow{animation:none}
+}
+@keyframes shimmer{0%{background-position:0% 0}100%{background-position:250% 0}}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.9}100%{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+@keyframes confettiFall{0%{transform:translateY(0) rotate(0) rotateY(0);opacity:0}8%{opacity:1}100%{transform:translateY(112vh) rotate(720deg) rotateY(540deg);opacity:.9}}
+@keyframes ringOut{0%{transform:scale(.3);opacity:.9}100%{transform:scale(4.5);opacity:0}}
